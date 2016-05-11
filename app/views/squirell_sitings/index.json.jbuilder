@@ -1,7 +1,3 @@
-json.array! @squirell.each do |squirells|
-  json.id squirells.id
-  json.first_name squirells.squirell_type
-  json.last_name squirells.location
-  json.birthdate squirells.date
-  json.email squirells.description
+json.array! @squirell.each do |squirell|
+  json.partial! 'squirell.json.jbuilder', squirell: squirell
 end

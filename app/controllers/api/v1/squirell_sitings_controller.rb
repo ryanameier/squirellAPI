@@ -1,6 +1,5 @@
-class SquirellSitingsController < ApplicationController
-
-  def index
+class Api::V1::SquirellSitingsController < ApplicationController
+    def index
     @squirell = SquirellSiting.all
   end
 
@@ -30,4 +29,5 @@ class SquirellSitingsController < ApplicationController
    @squirell.destroy
    render json: "SQUIRELL DESTROYED!"
   end
+end
 end
