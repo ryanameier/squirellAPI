@@ -1,0 +1,16 @@
+<div ng-app="app">
+  <div ng-controller="squirell_sitings_ctrl" ng-init="setup()">
+    <div>
+      Type of squirell: <input ng-model="newSquirellSquirell_type">
+      Description: <input ng-model="newSquirellDescription">
+      <button ng-click="addSquirell(newSquirellSquirell_type, newSquirellDescription)">Add Squirell</button>
+    </div>
+
+    <div ng-repeat="squirell in squirells">
+      <h2 ng-click="toggleDescription(person)">{{ squirell.squirell_type }}</h2>
+      <h3 ng-if="squirell.descriptionVisible">{{ squirell.description }}</h3>
+      <a href="#" ng-click="deleteSquirell($index)">Delete Squirell</a>
+    </div>
+    Total Squirell {{ SquirellSiting.length }}
+  </div>
+</div>

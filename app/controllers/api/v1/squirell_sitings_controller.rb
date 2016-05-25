@@ -30,4 +30,3 @@ class Api::V1::SquirellSitingsController < ApplicationController
    render json: "SQUIRELL DESTROYED!"
   end
 end
-end
