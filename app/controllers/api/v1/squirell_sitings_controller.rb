@@ -9,9 +9,13 @@ class Api::V1::SquirellSitingsController < ApplicationController
 
   def create
     @squirell = SquirellSiting.new(id: params[:id], squirell_type: params[:squirell_type], location: params[:location], date: params[:date], description: params[:description])
-    @squirell.save
+   if @squirell.save
     render :show
+    else
+      render json: {errors: @squirell.errors.full_messages}, status: 422
+    end
   end
+
 
    def update
     @squirell = SquirellSitting.find_by(id: params[:id])
@@ -27,6 +31,6 @@ class Api::V1::SquirellSitingsController < ApplicationController
  def destroy
    @squirell = SquirellSiting.find_by(id: params[:id])
    @squirell.destroy
-   render json: "SQUIRELL DESTROYED!"
+   render json: @squirell
   end
 end

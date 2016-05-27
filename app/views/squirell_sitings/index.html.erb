@@ -1,16 +1,36 @@
 <div ng-app="app">
   <div ng-controller="squirell_sitings_ctrl" ng-init="setup()">
-    <div>
-      Type of squirell: <input ng-model="newSquirellSquirell_type">
+  <ul>
+    <li ng-repeat="error in errors">{{ error }}</li>
+  </ul>
+  <p>
+   Type of squirell: <input ng-model="newSquirellSquirell_type">
       Description: <input ng-model="newSquirellDescription">
-      <button ng-click="addSquirell(newSquirellSquirell_type, newSquirellDescription)">Add Squirell</button>
-    </div>
+         Location: <input ng-model="newSquirellLocation">
+      Date: <input ng-model="newSquirellDate">
+     <button ng-click="addSquirell(newSquirellSquirell_type, newSquirellDescription, newSquirellLocation, newSquirellDate)">Add Squirell</button>
+  </p>
+  <table>
+    <tr>
+      <th>Type of Squirell</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Date</th>
+    </tr>
+                   <label>Filter by Squirell Type:</label>
+    <input ng-model="squirell_typeFilter">
+    <tr ng-repeat="squirell in squirells | filter: {squirell_type: squirell_typeFilter}">
+      <td>{{ squirell.squirell_type}}</td>
+      <td>{{ squirell.description}}</td>
+      <td>{{ squirell.location}}</td>
+      <td>{{ squirell.date}}</td>
+           <td><a href="#" ng-click="deleteSquirell(squirell)">Delete Squirell</a></td>
+    </tr>
 
-    <div ng-repeat="squirell in squirells">
-      <h2 ng-click="toggleDescription(person)">{{ squirell.squirell_type }}</h2>
-      <h3 ng-if="squirell.descriptionVisible">{{ squirell.description }}</h3>
-      <a href="#" ng-click="deleteSquirell($index)">Delete Squirell</a>
-    </div>
-    Total Squirell {{ SquirellSiting.length }}
+
+
+  </table>
+
+
   </div>
 </div>
