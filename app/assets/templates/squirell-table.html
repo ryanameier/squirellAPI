@@ -1,0 +1,27 @@
+  <table>
+    <tr>
+      <th>Type of Squirell</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Date</th>
+    </tr>
+
+                   <label>Filter by Squirell Type:</label>
+
+        <datalist id="autocompletevariable">
+      <option ng-repeat="squirell in squirells">{{ squirell.squirell_type }}</option>
+    </datalist>
+
+
+    <input ng-model="squirell_typeFilter" list="autocompletevariable">
+    <tr ng-repeat="squirell in squirells | suspicious">
+      <td>{{ squirell.squirell_type}}</td>
+      <td>{{ squirell.description}}</td>
+      <td>{{ squirell.location}}</td>
+      <td>{{ squirell.date}}</td>
+           <td><a href="#" ng-click="deleteSquirell(squirell)">Delete Squirell</a></td>
+    </tr>
+
+
+
+  </table>

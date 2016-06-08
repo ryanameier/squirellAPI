@@ -1,36 +1,20 @@
 <div ng-app="app">
   <div ng-controller="squirell_sitings_ctrl" ng-init="setup()">
+
+  <squirell-sitings-directive> </squirell-sitings-directive>
+
   <ul>
     <li ng-repeat="error in errors">{{ error }}</li>
   </ul>
+  
   <p>
+
    Type of squirell: <input ng-model="newSquirellSquirell_type">
       Description: <input ng-model="newSquirellDescription">
          Location: <input ng-model="newSquirellLocation">
       Date: <input ng-model="newSquirellDate">
      <button ng-click="addSquirell(newSquirellSquirell_type, newSquirellDescription, newSquirellLocation, newSquirellDate)">Add Squirell</button>
   </p>
-  <table>
-    <tr>
-      <th>Type of Squirell</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Date</th>
-    </tr>
-                   <label>Filter by Squirell Type:</label>
-    <input ng-model="squirell_typeFilter">
-    <tr ng-repeat="squirell in squirells | filter: {squirell_type: squirell_typeFilter}">
-      <td>{{ squirell.squirell_type}}</td>
-      <td>{{ squirell.description}}</td>
-      <td>{{ squirell.location}}</td>
-      <td>{{ squirell.date}}</td>
-           <td><a href="#" ng-click="deleteSquirell(squirell)">Delete Squirell</a></td>
-    </tr>
-
-
-
-  </table>
-
-
+ <squirell-table> </squirell-table>
   </div>
 </div>

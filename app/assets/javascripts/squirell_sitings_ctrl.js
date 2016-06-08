@@ -30,6 +30,8 @@
     });
   }
 
+
+
   window.$scope = $scope;
   });
 })();
